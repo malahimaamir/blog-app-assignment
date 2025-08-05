@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Beautiful Blog Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Background gradients */
+    --background: 220 15% 98%;
+    --background-secondary: 218 20% 96%;
+    --foreground: 220 40% 8%;
+
+    /* Card system with subtle shadows */
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 8%;
+    --card-border: 220 15% 88%;
+
+    /* Popover styling */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 8%;
+
+    /* Beautiful primary colors - elegant purple-blue */
+    --primary: 240 75% 55%;
+    --primary-glow: 245 85% 65%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Sophisticated secondary palette */
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 220 40% 12%;
+
+    /* Muted tones for subtle elements */
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 25% 45%;
+
+    /* Accent colors for highlights */
+    --accent: 280 65% 60%;
+    --accent-glow: 285 75% 70%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Beautiful destructive red */
+    --destructive: 0 75% 58%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border and input styling */
+    --border: 220 15% 88%;
+    --input: 220 15% 94%;
+    --ring: 240 75% 55%;
+
+    /* Design tokens for gradients and effects */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--background-secondary)) 50%, hsl(var(--muted)) 100%);
+    
+    /* Shadows with primary color */
+    --shadow-elegant: 0 10px 30px -5px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 4px 20px -2px hsl(var(--primary) / 0.08);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark theme with deep blues and elegant contrast */
+    --background: 220 30% 6%;
+    --background-secondary: 220 25% 8%;
+    --foreground: 220 15% 95%;
+
+    /* Dark cards with subtle glow */
+    --card: 220 25% 8%;
+    --card-foreground: 220 15% 95%;
+    --card-border: 220 20% 15%;
+
+    --popover: 220 25% 8%;
+    --popover-foreground: 220 15% 95%;
+
+    /* Bright primary in dark mode */
+    --primary: 245 85% 65%;
+    --primary-glow: 250 90% 75%;
+    --primary-foreground: 220 30% 6%;
+
+    /* Dark secondary palette */
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 220 15% 95%;
+
+    /* Dark muted tones */
+    --muted: 220 20% 12%;
+    --muted-foreground: 220 15% 65%;
+
+    /* Vibrant accent in dark */
+    --accent: 285 75% 70%;
+    --accent-glow: 290 85% 80%;
+    --accent-foreground: 220 30% 6%;
+
+    /* Dark destructive */
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 220 30% 6%;
+
+    /* Dark borders and inputs */
+    --border: 220 20% 15%;
+    --input: 220 20% 12%;
+    --ring: 245 85% 65%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-background via-background-secondary to-muted text-foreground;
+    background-attachment: fixed;
+  }
+
+  /* Beautiful typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+}
+
+@layer components {
+  /* Beautiful card variations */
+  .card-elegant {
+    @apply bg-card/80 backdrop-blur-sm border border-card-border shadow-card hover:shadow-elegant transition-all duration-300;
+  }
+
+  .card-glow {
+    @apply bg-card border border-card-border shadow-glow;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent;
+  }
+
+  /* Button enhancements */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-accent shadow-elegant hover:shadow-glow transition-all duration-300;
+  }
+
+  /* Smooth animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
